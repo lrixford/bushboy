@@ -1,9 +1,13 @@
 {
-  "name": "@fastify/busboy",
-  "version": "3.2.0",
+  "name": "bushboy",
+  "version": "1.0.0",
   "private": false,
-  "author": "Brian White <mscdex@mscdex.net>",
+  "author": "Laird Rixford (https://github.com/lrixford)",
   "contributors": [
+    {
+      "name": "Brian White",
+      "email": "mscdex@mscdex.net"
+    },
     {
       "name": "Igor Savin",
       "email": "kibertoad@gmail.com",
@@ -15,7 +19,7 @@
       "url": "https://github.com/uzlopak"
     }
   ],
-  "description": "A streaming parser for HTML form data for node.js",
+  "description": "A streaming parser for HTML form data with custom header support - fork of @fastify/busboy",
   "main": "lib/main",
   "type": "commonjs",
   "types": "lib/main.d.ts",
@@ -46,17 +50,21 @@
     "uploads",
     "forms",
     "multipart",
-    "form-data"
+    "form-data",
+    "headers",
+    "custom-headers",
+    "busboy",
+    "fork"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fastify/busboy.git"
+    "url": "git+https://github.com/lrixford/bushboy.git"
   },
   "bugs": {
-    "url": "https://github.com/fastify/busboy/issues"
+    "url": "https://github.com/lrixford/bushboy/issues"
   },
-  "homepage": "https://github.com/fastify/busboy#readme",
+  "homepage": "https://github.com/lrixford/bushboy#readme",
   "tsd": {
     "directory": "test-types"
   },

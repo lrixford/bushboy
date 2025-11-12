@@ -105,6 +105,13 @@ export interface BusboyConfig {
         headerSize?: number | undefined;
     }
     | undefined;
+    /**
+     * Expose all parsed headers (including custom headers) in file/field event handlers.
+     * When enabled, an additional headers parameter will be passed to file and field event listeners.
+     * Headers are already validated for CRLF injection, size limits, and RFC compliance.
+     * @default false
+     */
+    exposeHeaders?: boolean | undefined;
 }
 
 export type BusboyHeaders = { 'content-type': string } & http.IncomingHttpHeaders;
@@ -164,6 +171,8 @@ export interface BusboyEvents {
      *
      * @param listener.transferEncoding Contains the 'Content-Transfer-Encoding' value for the file stream.
      * @param listener.mimeType Contains the 'Content-Type' value for the file stream.
+     * @param listener.headers Optional. Contains all parsed headers when exposeHeaders config is true.
+     * Header values are arrays to support multi-valued headers per RFC 2822.
      */
     file: (
         fieldname: string,
@@ -171,9 +180,13 @@ export interface BusboyEvents {
         filename: string,
         transferEncoding: string,
         mimeType: string,
+        headers?: Record<string, string[]>,
     ) => void;
     /**
      * Emitted for each new non-file field found.
+     *
+     * @param listener.headers Optional. Contains all parsed headers when exposeHeaders config is true.
+     * Header values are arrays to support multi-valued headers per RFC 2822.
      */
     field: (
         fieldname: string,
@@ -182,6 +195,7 @@ export interface BusboyEvents {
         valueTruncated: boolean,
         transferEncoding: string,
         mimeType: string,
+        headers?: Record<string, string[]>,
     ) => void;
     finish: () => void;
     /**

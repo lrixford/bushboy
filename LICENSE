@@ -1,5 +1,8 @@
 MIT License
 
+Copyright (c) 2025 Laird Rixford
+
+Based on @fastify/busboy:
 Copyright Brian White. All rights reserved.
 Copyright (c) 2021-present The Fastify team
 
